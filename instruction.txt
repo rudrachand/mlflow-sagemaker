@@ -1,0 +1,37 @@
+Create the python env and install requirements.txt packages
+Setup AWS IAM user and AWS CLI Configuration 
+    - go to IAM
+    - click on users and create a new user in this case for me is rudrachand and give programatic access
+    - Note down ACCESS KEY AND SECRET
+    - Create new group with desired name and give access to policies sagemaker full access and EC2 Container registry full access
+Setup IAM in AWS command line 
+    - type command 'aws configure' then it will prompt to give ACCESS_KEY and SECRET_KEY ,please give so
+Test if mlflow works good by typing command 'mlflow ui' and press enter and mlflow ui will open and 
+new folder 'mlrun' will create automatically in the project folder.
+Adapt pythonscript train.py,run train.py
+You must get new experiment in mlflow UI and capture the 'run_id' and 'experiment id'
+Use the command 'export' to communicate between terminal and AWS for example 'export AWS_ACCESS_KEY_ID='give the access key' and
+'export AWS_SECRET_ACCESS_KEY='give secret'
+Then navigate to the artifact folder in command prompt , in my case it was
+ /d/AWS/mlflow/mlruns/897254543458316938/b2b20dff826b4def99dc50e5792fcbab/artifacts/random-forest-model
+
+Important:
+After above command type this command 'mlflow sagemaker build-and-push-container' and press enter and wait for update ,takes 10-15 mins
+it will reflect in docker desktop and the ECR.
+
+-Deploy image from ECR to sagemaker:
+  -go back to original project folder
+  -Go to IAM and select roles and create a new one for sagemaker full access
+  -create a role called aws-sagemaker-for-deploy and copy arn and paste in deploy.py
+  -also give s3 permission and create policy for s3-full access
+  -create aws-id , by following command 'aws sts get-caller-identity --query Account --output text' and fill aws-id in deploy.py
+Run deploy.py
+It creates end point in sagemaker ,check in inference and endpoint configure and endpoint and should be in service.
+Then run predict.py
+  
+
+
+
+
+
+

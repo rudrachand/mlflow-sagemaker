@@ -39,6 +39,6 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=19890528)
 
 # Create test data and make inference from endpoint
-query_input = json.dumps({"instances": [[5.0, 1.9]]})  # Adjusted format
+query_input = json.dumps({"instances": [[4.2, 1.6]]})  # Adjusted format
 print(query_input)
 predictions = query_endpoint(app_name=app_name, input_json=query_input)

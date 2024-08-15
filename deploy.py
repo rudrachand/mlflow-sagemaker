@@ -1,10 +1,10 @@
 import mlflow.sagemaker as mfs
 
-experiment_id = '214535389302989232'
-run_id = '30d4fa4e2cf747e796f680c27b282035'
+experiment_id = '897254543458316938'
+run_id = 'b2b20dff826b4def99dc50e5792fcbab'
 region = 'us-west-2'
 aws_id = '718163805631'
-arn = 'arn:aws:iam::718163805631:role/aws-sagemaker-for-deploy-ml-model'
+arn = 'arn:aws:iam::718163805631:role/aws-sagemaker-for-deploy'
 app_name = 'model-application'
 model_uri = f'mlruns/{experiment_id}/{run_id}/artifacts/random-forest-model'
 tag_id = '2.15.1'
