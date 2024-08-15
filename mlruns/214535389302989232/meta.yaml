@@ -1,6 +1,0 @@
-artifact_location: file:///D:/AWS/mlflow/mlruns/214535389302989232
-creation_time: 1723708524489
-experiment_id: '214535389302989232'
-last_update_time: 1723708524489
-lifecycle_stage: active
-name: my_classification_model
